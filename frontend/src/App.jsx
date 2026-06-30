@@ -57,6 +57,9 @@ function App() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
       setLoadingSession(false)
+    }).catch(err => {
+      console.error("Error al obtener sesión:", err)
+      setLoadingSession(false)
     })
 
     const {
